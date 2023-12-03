@@ -7,17 +7,17 @@ public class PopularProductsModel implements Serializable {
     String description;
     String name;
     String rating;
-    String img_url;
+    String image_url;
     int price;
 
     public PopularProductsModel() {
     }
 
-    public PopularProductsModel(String description, String name, String rating, String img_url, int price) {
+    public PopularProductsModel(String description, String name, String rating, String image_url, int price) {
         this.description = description;
         this.name = name;
         this.rating = rating;
-        this.img_url = img_url;
+        this.image_url = image_url;
         this.price = price;
     }
 
@@ -45,12 +45,12 @@ public class PopularProductsModel implements Serializable {
         this.rating = rating;
     }
 
-    public String getImg_url() {
-        return img_url;
+    public String getImage_url() {
+        return image_url;
     }
 
-    public void setImg_url(String img_url) {
-        this.img_url = img_url;
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 
     public int getPrice() {

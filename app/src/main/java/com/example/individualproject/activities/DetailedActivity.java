@@ -80,7 +80,7 @@ public class DetailedActivity extends AppCompatActivity {
 
 //      Popular Products
         if(popularProductsModel  != null) {
-            Glide.with(getApplicationContext()).load(popularProductsModel.getImg_url()).into(detailedImg);
+            Glide.with(getApplicationContext()).load(popularProductsModel.getImage_url()).into(detailedImg);
 
             name.setText(popularProductsModel.getName());
             rating.setText(popularProductsModel.getRating());

@@ -35,19 +35,23 @@ public class PopularProductsAdapter extends RecyclerView.Adapter<PopularProducts
 
     @Override
     public void onBindViewHolder(@NonNull PopularProductsAdapter.ViewHolder holder, int position) {
-        Glide.with(context).load(popularProductsModelsList.get(position).getImg_url()).into(holder.imageView);
+        Glide.with(context).load(popularProductsModelsList.get(position).getImage_url()).into(holder.imageView);
         holder.name.setText(popularProductsModelsList.get(position).getName());
         holder.price.setText(String.valueOf(popularProductsModelsList.get(position).getPrice()));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, DetailedActivity.class);
-                intent.putExtra("detailed", popularProductsModelsList.get(position));
-                context.startActivity(intent);
+                int adapterPosition = holder.getAdapterPosition();
+                if (adapterPosition != RecyclerView.NO_POSITION) {
+                    Intent intent = new Intent(context, DetailedActivity.class);
+                    intent.putExtra("detailed", popularProductsModelsList.get(adapterPosition));
+                    context.startActivity(intent);
+                }
             }
         });
     }
+
 
     @Override
     public int getItemCount() {
