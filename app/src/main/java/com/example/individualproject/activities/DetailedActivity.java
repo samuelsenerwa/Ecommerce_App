@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.individualproject.R;
 import com.example.individualproject.models.NewProductsModel;
 import com.example.individualproject.models.PopularProductsModel;
+import com.example.individualproject.models.ShowAllModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -38,7 +39,8 @@ public class DetailedActivity extends AppCompatActivity {
 //    Popular Products
     PopularProductsModel popularProductsModel = null;
 
-//   TODO:Implement showAll function
+//   Show All
+    ShowAllModel showAllModel = null;
 
     FirebaseAuth  auth;
     private FirebaseFirestore firestore;
@@ -88,9 +90,17 @@ public class DetailedActivity extends AppCompatActivity {
             price.setText(String.valueOf(popularProductsModel.getPrice()));
         }
 
-//        TODO: Handle the ShowAllProducts method
+//        Show All Products
 
-        addItems.setOnClickListener(new View.OnClickListener() {
+        if(showAllModel  != null) {
+            Glide.with(getApplicationContext()).load(showAllModel.getImage_url()).into(detailedImg);
+            name.setText(showAllModel.getName());
+            rating.setText(showAllModel.getRating());
+            description.setText(showAllModel.getDescription());
+            price.setText(String.valueOf(showAllModel.getPrice()));
+        }
+
+        addToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addToCart();
