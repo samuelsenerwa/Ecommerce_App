@@ -4,11 +4,20 @@ public class ShowAllModel {
     String description;
     String name;
     String rating;
-    String img_url;
+    String image_url;
     String type;
     int price;
 
     public ShowAllModel() {
+    }
+
+    public ShowAllModel(String description, String name, String rating, String image_url, String type, int price) {
+        this.description = description;
+        this.name = name;
+        this.rating = rating;
+        this.image_url = image_url;
+        this.type = type;
+        this.price = price;
     }
 
     public String getDescription() {
@@ -35,12 +44,12 @@ public class ShowAllModel {
         this.rating = rating;
     }
 
-    public String getImg_url() {
-        return img_url;
+    public String getImage_url() {
+        return image_url;
     }
 
-    public void setImg_url(String img_url) {
-        this.img_url = img_url;
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 
     public String getType() {
@@ -56,15 +65,6 @@ public class ShowAllModel {
     }
 
     public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public ShowAllModel(String description, String name, String rating, String img_url, String type, int price) {
-        this.description = description;
-        this.name = name;
-        this.rating = rating;
-        this.img_url = img_url;
-        this.type = type;
         this.price = price;
     }
 }
