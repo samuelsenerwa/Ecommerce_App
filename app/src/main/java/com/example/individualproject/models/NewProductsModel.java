@@ -6,17 +6,17 @@ public class NewProductsModel implements Serializable {
     String description;
     String name;
     String rating;
-    String img_url;
+    String image_url;
     int price;
 
     public NewProductsModel() {
     }
 
-    public NewProductsModel(String description, String name, String rating, String img_url, int price) {
+    public NewProductsModel(String description, String name, String rating, String image_url, int price) {
         this.description = description;
         this.name = name;
         this.rating = rating;
-        this.img_url = img_url;
+        this.image_url = image_url;
         this.price = price;
     }
 
@@ -44,12 +44,12 @@ public class NewProductsModel implements Serializable {
         this.rating = rating;
     }
 
-    public String getImg_url() {
-        return img_url;
+    public String getImage_url() {
+        return image_url;
     }
 
-    public void setImg_url(String img_url) {
-        this.img_url = img_url;
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 
     public int getPrice() {
@@ -59,4 +59,6 @@ public class NewProductsModel implements Serializable {
     public void setPrice(int price) {
         this.price = price;
     }
+
+
 }

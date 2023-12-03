@@ -70,7 +70,7 @@ public class DetailedActivity extends AppCompatActivity {
 
 //        New Products
         if(newProductsModel != null) {
-            Glide.with(getApplicationContext()).load(newProductsModel.getImg_url()).into(detailedImg);
+            Glide.with(getApplicationContext()).load(newProductsModel.getImage_url()).into(detailedImg);
 
             name.setText(newProductsModel.getName());
             rating.setText(newProductsModel.getRating());

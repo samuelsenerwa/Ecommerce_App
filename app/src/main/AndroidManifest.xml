@@ -14,10 +14,10 @@
         android:theme="@style/Theme.IndividualProject"
         tools:targetApi="34">
         <activity
-            android:name=".DetailedActivity"
+            android:name=".activities.DetailedActivity"
             android:exported="false" />
         <activity
-            android:name=".ShowAllActivity"
+            android:name=".activities.ShowAllActivity"
             android:exported="false" />
         <activity
             android:name=".activities.OnBoardingActivity"
