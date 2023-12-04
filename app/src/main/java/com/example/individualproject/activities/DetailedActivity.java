@@ -2,6 +2,7 @@ package com.example.individualproject.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.View;
@@ -32,6 +33,7 @@ public class DetailedActivity extends AppCompatActivity {
     TextView rating, name, description, price, quantity;
     Button addToCart, buyNow;
     ImageView addItems, removeItems;
+    Toolbar toolbar;
 
     int totalQuantity = 1;
     int totalPrice = 0;
@@ -53,6 +55,9 @@ public class DetailedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed);
 
+        toolbar = findViewById(R.id.detailed_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         firestore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
         final Object obj = getIntent().getSerializableExtra("detailed");
@@ -65,7 +70,7 @@ public class DetailedActivity extends AppCompatActivity {
 
         detailedImg = findViewById(R.id.detailed_img);
         name = findViewById(R.id.detailed_name);
-        rating = findViewById(R.id.detailed_name);
+        rating = findViewById(R.id.rating);
         description = findViewById(R.id.detailed_desc);
         price = findViewById(R.id.detailed_price);
         quantity = findViewById(R.id.quantity);
@@ -140,7 +145,7 @@ public class DetailedActivity extends AppCompatActivity {
         removeItems.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(totalQuantity > 10) {
+                if(totalQuantity < 10) {
                     totalQuantity--;
                     quantity.setText(String.valueOf(totalQuantity));
                 }

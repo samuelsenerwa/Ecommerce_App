@@ -28,7 +28,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
         auth = FirebaseAuth.getInstance();
         if(auth.getCurrentUser() != null){
             startActivity(new Intent(RegisterActivity.this, MainActivity.class));

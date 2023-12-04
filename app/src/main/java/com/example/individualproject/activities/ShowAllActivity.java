@@ -2,6 +2,7 @@ package com.example.individualproject.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +26,8 @@ public class ShowAllActivity extends AppCompatActivity {
     ShowAllAdapter showAllAdapter;
     List<ShowAllModel> showAllModelList;
 
+    Toolbar toolbar;
+
     FirebaseFirestore firestore;
 
     @Override
@@ -34,6 +37,10 @@ public class ShowAllActivity extends AppCompatActivity {
 
         String type = getIntent().getStringExtra("type");
 
+        toolbar = findViewById(R.id.show_all_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       
         firestore = FirebaseFirestore.getInstance();
         recyclerView = findViewById(R.id.show_all_rec);
         recyclerView.setLayoutManager((new GridLayoutManager(this, 2)));
