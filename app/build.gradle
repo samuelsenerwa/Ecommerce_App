@@ -34,6 +34,9 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.10.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    implementation platform('com.google.firebase:firebase-bom:32.6.0')
+    implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-auth:21.0.3'
     implementation 'com.google.firebase:firebase-firestore:24.1.1'
     testImplementation 'junit:junit:4.13.2'
@@ -45,6 +48,9 @@ dependencies {
 
 //    glide
     implementation 'com.github.bumptech.glide:glide:4.16.0'
+
+//    Paypal
+    implementation 'com.paypal.sdk:paypal-android-sdk:2.16.0'
 
 
 

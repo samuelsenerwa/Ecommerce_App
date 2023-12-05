@@ -3,10 +3,18 @@ package com.example.individualproject.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 import com.example.individualproject.R;
@@ -24,6 +32,11 @@ import java.util.List;
 
 public class CartActivity extends AppCompatActivity {
 
+    int overallTotalAmount;
+
+    TextView overallAmount;
+
+//    Button payment_btn;
     Toolbar toolbar;
     RecyclerView recyclerView;
 
@@ -45,11 +58,20 @@ public class CartActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+//        get data from my cart adapter
+        LocalBroadcastManager.getInstance(this)
+                .registerReceiver(mMessageReceiver, new IntentFilter("MyTotalAmount"));
+
+//        payment_btn = findViewById(R.id.buy_now);
+        overallAmount = findViewById(R.id.textView3);
         recyclerView = findViewById(R.id.cart_rec);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         cartModelList = new ArrayList<>();
         cartAdapter = new MyCartAdapter(this, cartModelList);
         recyclerView.setAdapter(cartAdapter);
+
+
+
 
         firestore.collection("AddToCart").document(auth.getCurrentUser().getUid())
                 .collection("User").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -65,5 +87,17 @@ public class CartActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+public BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        int totalBill = intent.getIntExtra("totalAmount",0);
+        overallAmount.setText("Total Amount :"+totalBill+"$");
+    }
+};
+
+    public void buyNow(View view){
+        startActivity(new Intent(CartActivity.this, CheckoutActivity.class));
     }
 }
