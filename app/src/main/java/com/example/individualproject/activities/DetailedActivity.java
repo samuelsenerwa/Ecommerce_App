@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -181,5 +182,9 @@ public class DetailedActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public void buyNow(View view) {
+        startActivity(new Intent(DetailedActivity.this, CheckoutActivity.class));
     }
 }

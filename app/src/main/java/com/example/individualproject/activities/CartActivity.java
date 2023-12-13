@@ -32,8 +32,6 @@ import java.util.List;
 
 public class CartActivity extends AppCompatActivity {
 
-    int overallTotalAmount;
-
     TextView overallAmount;
 
 //    Button payment_btn;

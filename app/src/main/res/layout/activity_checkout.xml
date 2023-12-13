@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!-- res/layout/checkout_activity.xml -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,49 +16,67 @@
         android:textStyle="bold"
         android:layout_gravity="center"/>
 
-    <RelativeLayout
+    <!-- Form Fields -->
+    <EditText
+        android:id="@+id/editTextName"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        android:layout_height="wrap_content"
+        android:hint="Name"/>
 
-        <!--Edit text for entering the amount-->
-        <EditText
-            android:id="@+id/idEdtAmount"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="20dp"
-            android:hint="Enter Amount to be Paid"
-            android:inputType="numberDecimal"
-            android:minHeight="48dp" />
+    <EditText
+        android:id="@+id/editTextAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Address"
+        android:minHeight="48dp" />
 
-        <!--button for making a payment-->
-        <Button
-            android:id="@+id/idBtnPay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/idEdtAmount"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="10dp"
-            android:text="Make Payment" />
+    <EditText
+        android:id="@+id/editTextContactNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:hint="Contact Number"
+        android:minHeight="48dp" />
 
-        <!--text view for displaying payment status-->
-        <TextView
-            android:id="@+id/idTVStatus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/idBtnPay"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:padding="5dp"
-            android:textAlignment="center"
-            android:textColor="@color/purple_200"
-            android:textSize="20sp" />
+    <EditText
+        android:id="@+id/editTextCardNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Card Number"
+        android:minHeight="48dp" />
 
-    </RelativeLayout>
+    <EditText
+        android:id="@+id/editTextCVV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="CVV"
+        android:minHeight="48dp" />
 
+    <!-- Spinner for Shipping Method -->
+    <Spinner
+        android:id="@+id/spinnerShipping"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:entries="@array/shipping_methods"
+        android:minHeight="48dp" />
+
+    <!-- Order Summary -->
+    <TextView
+        android:id="@+id/textViewOrderSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Order Summary: (Display dynamically from selected products)"/>
+
+    <!-- Confirm Purchase Button -->
+    <Button
+        android:id="@+id/btnConfirmPurchase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Confirm Purchase"/>
 
 </LinearLayout>
-
